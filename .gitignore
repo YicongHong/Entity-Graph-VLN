@@ -9,8 +9,11 @@ __pycache__/
 connectivity/*
 !connectivity/.gitkeep
 
-data/*
-!data/.gitkeep
+data/R2R_test.json
+data/R2R_train.json
+data/R2R_val_seen.json
+data/R2R_val_unseen.json
+data/aug_paths.json
 
 img_features/*
 !img_features/.gitkeep

@@ -15,13 +15,20 @@ Code of the NeurIPS 2020 paper:
 ### Installation
 
 Install the [Matterport3D Simulator](https://github.com/peteanderson80/Matterport3DSimulator).
-Please find the versions of packages in our environment in [entity_graph_vln.yml](https://github.com/YicongHong/Entity-Graph-VLN/blob/master/entity_graph_vln.yml)
 
-### Data Preparation
-Please follow the instructions below to prepare the language and visual data.
+Please find the versions of packages in our environment [here](https://github.com/YicongHong/Entity-Graph-VLN/blob/master/entity_graph_vln.yml)
+
+<!-- ### Data Preparation
+
+Please follow the instructions below to prepare the language and visual data in folders:
+
+- `connectivity`: Download the [connectivity maps](https://github.com/peteanderson80/Matterport3DSimulator/tree/master/connectivity).
+- `data`: Download the [R2R data](https://github.com/peteanderson80/Matterport3DSimulator/tree/master/tasks/R2R/data). Download the vocabulary and the augmented data from [EnvDrop](https://github.com/airsplay/R2R-EnvDrop/tree/master/tasks/R2R/data).
+- `img_features`: Download the [Scene features](https://www.dropbox.com/s/85tpa6tc3enl5ud/ResNet-152-places365.zip?dl=1) (ResNet-152-Places365). Download the pre-processed [Object features and vocabulary](). Download -->
 
 
-Updating README ...
+
+Still updating README ...
 
 
 
