@@ -1,0 +1,22 @@
+.ftpignore
+.ftpconfig
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+connectivity/*
+!connectivity/.gitkeep
+
+data/*
+!data/.gitkeep
+
+img_features/*
+!img_features/.gitkeep
+
+snap/*
+!snap/.gitkeep
+
+logs/*
+!logs/.gitkeep
