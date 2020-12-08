@@ -88,7 +88,7 @@ def load_datasets(splits):
 
 def get_glove_matrix(index_to_word, vector_dim):
     ''' load GloVE '''
-    glove_path = 'img_features/glove.6B'
+    glove_path = 'img_features/objects/glove.6B'
     vectors = bcolz.open(f'{glove_path}/6B.{vector_dim}.dat')[:]
     words = pickle.load(open(f'{glove_path}/6B.{vector_dim}_words.pkl', 'rb'))
     word2idx = pickle.load(open(f'{glove_path}/6B.{vector_dim}_idx.pkl', 'rb'))

@@ -22,7 +22,6 @@ Please find the versions of packages in our environment [here](https://github.co
 - OpenCV 3.4.2
 - PyTorch 1.3.0
 - Torchvision 0.4.1
-- Cuda 10.0
 
 ### Data Preparation
 
@@ -32,7 +31,14 @@ Please follow the instructions below to prepare the language and visual data in 
 - `data`:
     - Download the [R2R data](https://github.com/peteanderson80/Matterport3DSimulator/tree/master/tasks/R2R/data).
     - Download the vocabulary and the augmented data from [EnvDrop](https://github.com/airsplay/R2R-EnvDrop/tree/master/tasks/R2R/data).
-<!-- - `img_features`: Download the [Scene features](https://www.dropbox.com/s/85tpa6tc3enl5ud/ResNet-152-places365.zip?dl=1) (ResNet-152-Places365). Download the pre-processed [Object features and vocabulary](). Download -->
+- `img_features`:
+    - Download the [Scene features](https://www.dropbox.com/s/85tpa6tc3enl5ud/ResNet-152-places365.zip?dl=1) (ResNet-152-Places365).
+    - Download the pre-processed [Object features and vocabulary](https://zenodo.org/record/4310441/files/objects.zip?download=1).
+
+### Trained Network Weights
+
+- `snap`:
+    - Download the trained [network weights](https://zenodo.org/record/4310441/files/snap.zip?download=1)
 
 
 
