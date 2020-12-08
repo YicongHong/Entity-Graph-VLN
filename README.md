@@ -25,20 +25,21 @@ Please find the versions of packages in our environment [here](https://github.co
 
 ### Data Preparation
 
-Please follow the instructions below to prepare the language and visual data in folders:
+Please follow the instructions below to prepare the data in directories:
 
-- `connectivity`: Download the [connectivity maps](https://github.com/peteanderson80/Matterport3DSimulator/tree/master/connectivity).
-- `data`:
-    - Download the [R2R data](https://github.com/peteanderson80/Matterport3DSimulator/tree/master/tasks/R2R/data).
-    - Download the vocabulary and the augmented data from [EnvDrop](https://github.com/airsplay/R2R-EnvDrop/tree/master/tasks/R2R/data).
-- `img_features`:
-    - Download the [Scene features](https://www.dropbox.com/s/85tpa6tc3enl5ud/ResNet-152-places365.zip?dl=1) (ResNet-152-Places365).
-    - Download the pre-processed [Object features and vocabulary](https://zenodo.org/record/4310441/files/objects.zip?download=1).
+- `connectivity`
+    - Download the [connectivity maps [23.8MB]](https://github.com/peteanderson80/Matterport3DSimulator/tree/master/connectivity).
+- `data`
+    - Download the [R2R data [5.8MB]](https://github.com/peteanderson80/Matterport3DSimulator/tree/master/tasks/R2R/data).
+    - Download the vocabulary and the [augmented data from EnvDrop [79.5MB]](https://github.com/airsplay/R2R-EnvDrop/tree/master/tasks/R2R/data).
+- `img_features`
+    - Download the [Scene features [4.2GB]](https://www.dropbox.com/s/85tpa6tc3enl5ud/ResNet-152-places365.zip?dl=1) (ResNet-152-Places365).
+    - Download the pre-processed [Object features and vocabulary [1.3GB]](https://zenodo.org/record/4310441/files/objects.zip?download=1) ([Caffe Faster-RCNN](https://github.com/peteanderson80/bottom-up-attention)).
 
 ### Trained Network Weights
 
-- `snap`:
-    - Download the trained [network weights](https://zenodo.org/record/4310441/files/snap.zip?download=1)
+- `snap`
+    - Download the trained [network weights [146.0MB]](https://zenodo.org/record/4310441/files/snap.zip?download=1)
 
 
 
