@@ -76,11 +76,11 @@ The trained Speaker will be saved under `snap/`.
 
 #### Augmented Navigator
 
-Finally, keep training the Navigator with the mixture of original data and augmented data:
+Finally, keep training the Navigator with the mixture of original data and [augmented data](http://www.cs.unc.edu/~airsplay/aug_paths.json):
 ```bash
 bash run/bt_envdrop.bash
 ```
-We apply a one-step learning rate decay to 1e-6 when training saturates.
+We apply a one-step learning rate decay to 1e-5 when training saturates.
 
 ## Citation
 If you use or discuss our Entity Relationship Graph, please cite our paper:
