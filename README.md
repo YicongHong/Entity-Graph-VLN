@@ -74,7 +74,7 @@ Finally, keep training the Navigator with the mixture of original data and augme
 ```bash
 bash run/bt_envdrop.bash
 ```
-We apply a one-step learning rate decay to $1e^{-6}$ when training saturates.
+We apply a one-step learning rate decay to ```math 1e^{-6}``` when training saturates.
 
 
 
