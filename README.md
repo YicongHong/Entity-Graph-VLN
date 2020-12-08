@@ -56,6 +56,8 @@ bash run/agent.bash
 
 ### Training
 
+#### Navigator
+
 To train the network from scratch, first train a Navigator on the R2R training split:
 
 Modify `run/agent.bash`, remove the argument for `--load` and set `--train listener`. Then,
@@ -64,21 +66,21 @@ bash run/agent.bash
 ```
 The trained Navigator will be saved under `snap/`.
 
+#### Speaker
+
 You also need to train a [Speaker](https://github.com/airsplay/R2R-EnvDrop) for augmented training:
 ```bash
 bash run/speak.bash
 ```
 The trained Speaker will be saved under `snap/`.
 
+#### Augmented Navigator
+
 Finally, keep training the Navigator with the mixture of original data and augmented data:
 ```bash
 bash run/bt_envdrop.bash
 ```
-We apply a one-step learning rate decay to ```math 1e^{-6}``` when training saturates.
-
-
-
-
+We apply a one-step learning rate decay to 1e-6 when training saturates.
 
 ## Citation
 If you use or discuss our Entity Relationship Graph, please cite our paper:
