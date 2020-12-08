@@ -15,7 +15,7 @@ flag="--train auglistener
 
       --accumulateGrad
       --optim rms
-      --lr 1e-5
+      --lr 1e-4
       --iters 300000
       --maxAction 35"
 

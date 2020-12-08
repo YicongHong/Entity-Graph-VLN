@@ -2,7 +2,7 @@
 
 Code of the NeurIPS 2020 paper:
 **Language and Visual Entity Relationship Graph for Agent Navigation**<br>
-[**Yicong Hong**](http://www.yiconghong.me/), Cristian Rodriguez-Opazo, [Yuankai Qi](https://sites.google.com/site/yuankiqi/home), [Qi Wu](http://www.qi-wu.me/), [Stephen Gould](http://users.cecs.anu.edu.au/~sgould/)<br>
+[**Yicong Hong**](http://www.yiconghong.me/), [Cristian Rodriguez-Opazo](https://crodriguezo.github.io/), [Yuankai Qi](https://sites.google.com/site/yuankiqi/home), [Qi Wu](http://www.qi-wu.me/), [Stephen Gould](http://users.cecs.anu.edu.au/~sgould/)<br>
 
 [[Paper](https://papers.nips.cc/paper/2020/hash/56dc0997d871e9177069bb472574eb29-Abstract.html)] [[Supplemental](https://papers.nips.cc/paper/2020/file/56dc0997d871e9177069bb472574eb29-Supplemental.pdf)] [[GitHub](https://github.com/YicongHong/Entity-Graph-VLN)]
 
@@ -41,9 +41,42 @@ Please follow the instructions below to prepare the data in directories:
 - `snap`
     - Download the trained [network weights [146.0MB]](https://zenodo.org/record/4310441/files/snap.zip?download=1)
 
+## R2R Navigation
+
+Please read Peter Anderson's VLN paper for the [R2R Navigation task](https://arxiv.org/abs/1711.07280).
+
+Our code is based on the code structure of the [EnvDrop](https://github.com/airsplay/R2R-EnvDrop).
+
+### Reproduce Testing Results
+
+To replicate the performance reported in our paper, load the trained network weights and run validation:
+```bash
+bash run/agent.bash
+```
+
+### Training
+
+To train the network from scratch, first train a Navigator on the R2R training split:
+
+Modify `run/agent.bash`, remove the argument for `--load` and set `--train listener`. Then,
+```bash
+bash run/agent.bash
+```
+The trained Navigator will be saved under `snap/`.
+
+You also need to train a [Speaker](https://github.com/airsplay/R2R-EnvDrop) for augmented training:
+```bash
+bash run/speak.bash
+```
+The trained Speaker will be saved under `snap/`.
+
+Finally, keep training the Navigator with the mixture of original data and augmented data:
+```bash
+bash run/bt_envdrop.bash
+```
+We apply a one-step learning rate decay to $1e^{-6}$ when training saturates.
 
 
-Still updating README ...
 
 
 
