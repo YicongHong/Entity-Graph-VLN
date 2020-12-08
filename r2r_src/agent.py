@@ -98,7 +98,7 @@ class Seq2SeqAgent(BaseAgent):
 
         # Models
         self.glove_dim = 300
-        with open('img_features/object_vocab.txt', 'r') as f_ov:
+        with open('img_features/objects/object_vocab.txt', 'r') as f_ov:
             self.obj_vocab = [k.strip() for k in f_ov.readlines()]
         glove_matrix = get_glove_matrix(self.obj_vocab, self.glove_dim)
         self.objencoder = ObjEncoder(glove_matrix.size(0), glove_matrix.size(1), glove_matrix).cuda()

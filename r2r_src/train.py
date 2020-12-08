@@ -292,7 +292,7 @@ def train_val(test_only=False):
     if not args.test_obj:
         print('Loading compact pano-caffe object features ... (~3 seconds)')
         import pickle as pkl
-        with open('img_features/pano_object_class.pkl', 'rb') as f_pc:
+        with open('img_features/objects/pano_object_class.pkl', 'rb') as f_pc:
             pano_caffe = pkl.load(f_pc)
     else:
         pano_caffe = None
@@ -372,7 +372,7 @@ def train_val_augment(test_only=False):
     if not args.test_obj:
         print('Loading compact pano-caffe object features ... (~3 seconds)')
         import pickle as pkl
-        with open('img_features/pano_object_class.pkl', 'rb') as f_pc:
+        with open('img_features/objects/pano_object_class.pkl', 'rb') as f_pc:
             pano_caffe = pkl.load(f_pc)
     else:
         pano_caffe = None

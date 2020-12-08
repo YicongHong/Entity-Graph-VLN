@@ -16,15 +16,23 @@ Code of the NeurIPS 2020 paper:
 
 Install the [Matterport3D Simulator](https://github.com/peteanderson80/Matterport3DSimulator).
 
-Please find the versions of packages in our environment [here](https://github.com/YicongHong/Entity-Graph-VLN/blob/master/entity_graph_vln.yml)
+Please find the versions of packages in our environment [here](https://github.com/YicongHong/Entity-Graph-VLN/blob/master/entity_graph_vln.yml). In particular, we use:
+- Python 3.6.9
+- NumPy 1.18.1
+- OpenCV 3.4.2
+- PyTorch 1.3.0
+- Torchvision 0.4.1
+- Cuda 10.0
 
-<!-- ### Data Preparation
+### Data Preparation
 
 Please follow the instructions below to prepare the language and visual data in folders:
 
 - `connectivity`: Download the [connectivity maps](https://github.com/peteanderson80/Matterport3DSimulator/tree/master/connectivity).
-- `data`: Download the [R2R data](https://github.com/peteanderson80/Matterport3DSimulator/tree/master/tasks/R2R/data). Download the vocabulary and the augmented data from [EnvDrop](https://github.com/airsplay/R2R-EnvDrop/tree/master/tasks/R2R/data).
-- `img_features`: Download the [Scene features](https://www.dropbox.com/s/85tpa6tc3enl5ud/ResNet-152-places365.zip?dl=1) (ResNet-152-Places365). Download the pre-processed [Object features and vocabulary](). Download -->
+- `data`:
+    - Download the [R2R data](https://github.com/peteanderson80/Matterport3DSimulator/tree/master/tasks/R2R/data).
+    - Download the vocabulary and the augmented data from [EnvDrop](https://github.com/airsplay/R2R-EnvDrop/tree/master/tasks/R2R/data).
+<!-- - `img_features`: Download the [Scene features](https://www.dropbox.com/s/85tpa6tc3enl5ud/ResNet-152-places365.zip?dl=1) (ResNet-152-Places365). Download the pre-processed [Object features and vocabulary](). Download -->
 
 
 
