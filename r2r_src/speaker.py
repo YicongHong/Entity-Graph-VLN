@@ -6,7 +6,6 @@ import utils
 import model
 from torch.autograd import Variable
 import torch.nn.functional as F
-from model import ObjEncoder
 
 class Speaker():
     env_actions = {
@@ -28,12 +27,6 @@ class Speaker():
         self.listener = listener
 
         # Model
-        self.glove_dim = 300
-        with open('/students/u5399302/MatterportData/data/obj_stats2/objectvocab_filtered_dyno4.txt', 'r') as f_ov:
-            self.obj_vocab = [k.strip() for k in f_ov.readlines()]
-        glove_matrix = utils.get_glove_matrix(self.obj_vocab, self.glove_dim)
-        self.objencoder = ObjEncoder(glove_matrix.size(0), glove_matrix.size(1), glove_matrix).cuda()
-
         print("VOCAB_SIZE", self.tok.vocab_size())
         self.encoder = model.SpeakerEncoder(self.feature_size+args.angle_feat_size, args.rnn_dim, args.dropout, bidirectional=args.bidir).cuda()
         self.decoder = model.SpeakerDecoder(self.tok.vocab_size(), args.wemb, self.tok.word_to_index['<PAD>'],
@@ -161,19 +154,14 @@ class Speaker():
 
     def _candidate_variable(self, obs, actions):
         candidate_feat = np.zeros((len(obs), self.feature_size + args.angle_feat_size), dtype=np.float32)
-        candidate_obj_feat = torch.zeros(len(obs), args.n_objects, self.glove_dim).cuda()
         for i, (ob, act) in enumerate(zip(obs, actions)):
             if act == -1:  # Ignore or Stop --> Just use zero vector as the feature
                 pass
             else:
                 c = ob['candidate'][act]
                 candidate_feat[i, :] = c['feature'] # Image feat
-                temp_obj_label = ob['cand_objects'][act]
 
-                cand_obj_label_enc = self.objencoder(torch.from_numpy(temp_obj_label).cuda().long().unsqueeze(0))
-                candidate_obj_feat[i, :] = cand_obj_label_enc
-
-        return torch.from_numpy(candidate_feat).cuda(), Variable(candidate_obj_feat, requires_grad=False)
+        return torch.from_numpy(candidate_feat).cuda()
 
     def from_shortest_path(self, viewpoints=None, get_first_feat=False):
         """
@@ -186,7 +174,6 @@ class Speaker():
         length = np.zeros(len(obs), np.int64)
         img_feats = []
         can_feats = []
-        # obj_feats = [] # objects at the teacher selected direction at each step
         first_feat = np.zeros((len(obs), self.feature_size+args.angle_feat_size), np.float32)
         for i, ob in enumerate(obs):
             first_feat[i, -args.angle_feat_size:] = utils.angle_feature(ob['heading'], ob['elevation'])
@@ -204,9 +191,8 @@ class Speaker():
             for i, act in enumerate(teacher_action):
                 if act < 0 or act == len(obs[i]['candidate']):  # Ignore or Stop
                     teacher_action[i] = -1                      # Stop Action
-            can_feat_i, obj_feat_i = self._candidate_variable(obs, teacher_action)
+            can_feat_i = self._candidate_variable(obs, teacher_action)
             can_feats.append(can_feat_i) # a list of [batch, 2176] features, at teacher seleccted direction
-            # obj_feats.append(obj_feat_i) # a list of [batch, n_objects, 300] objects, at teacher seleccted direction
 
             self.make_equiv_action(teacher_action, obs)
             length += (1 - ended)
@@ -215,7 +201,6 @@ class Speaker():
 
         img_feats = torch.stack(img_feats, 1).contiguous()  # [batch_size, total_steps, 36, 2176]
         can_feats = torch.stack(can_feats, 1).contiguous()  # [batch_size, total_steps, 2176]
-        # obj_feats = torch.stack(obj_feats, 1).contiguous()  # [batch_size, total_steps, n_objects, 2176]
 
         if get_first_feat:
             # return (img_feats, can_feats, first_feat), length
