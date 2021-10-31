@@ -10,6 +10,8 @@ Code of the NeurIPS 2020 paper:
 <img src="teaser/f1.png" width="100%">
 </p>
 
+"*Halliday hated making rules. Why is that line sticking in my head? Maybe it's because Art3mis said it, and she's hot. Maybe it's because she called me out. Sitting here in my tiny corner of nowhere, protecting my small slice of nothing.*" --- [Ready Player One 2018](https://www.imdb.com/title/tt1677720/).
+
 ## Prerequisites
 
 ### Installation
